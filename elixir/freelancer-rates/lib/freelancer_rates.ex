@@ -11,12 +11,11 @@ defmodule FreelancerRates do
 
   def monthly_rate(hourly_rate, discount) do
     # Please implement the monthly_rate/2 function
-    apply_discount(daily_rate(hourly_rate) * 22, discount)
-    # TODO: Need to round this function
+    trunc(Float.ceil(apply_discount(daily_rate(hourly_rate) * 22, discount), 0))
   end
 
   def days_in_budget(budget, hourly_rate, discount) do
     # Please implement the days_in_budget/3 function
-    budget / apply_discount(daily_rate(hourly_rate), discount)
+    Float.floor(budget / apply_discount(daily_rate(hourly_rate), discount), 1)
   end
 end
