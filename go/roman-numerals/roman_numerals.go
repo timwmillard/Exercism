@@ -4,6 +4,27 @@ import (
 	"errors"
 )
 
+type numeral struct {
+	roman  string
+	arabic int
+}
+
+var romanNumeralTable = []numeral{
+	{roman: "M", arabic: 1000},
+	{roman: "CM", arabic: 900},
+	{roman: "D", arabic: 500},
+	{roman: "CD", arabic: 400},
+	{roman: "C", arabic: 100},
+	{roman: "XC", arabic: 90},
+	{roman: "L", arabic: 50},
+	{roman: "XL", arabic: 40},
+	{roman: "X", arabic: 10},
+	{roman: "IX", arabic: 9},
+	{roman: "V", arabic: 5},
+	{roman: "IV", arabic: 4},
+	{roman: "I", arabic: 1},
+}
+
 /*
  * I is 1
  * V is 5
@@ -19,44 +40,10 @@ func ToRomanNumeral(number int) (string, error) {
 	}
 	var numeral string
 	var i = number
-	for ; (i / 1000) > 0; i -= 1000 {
-		numeral += "M"
-	}
-	for ; (i / 900) > 0; i -= 900 {
-		numeral += "CM"
-	}
-	for ; (i / 500) > 0; i -= 500 {
-		numeral += "D"
-	}
-	for ; (i / 400) > 0; i -= 400 {
-		numeral += "CD"
-	}
-	for ; (i / 100) > 0; i -= 100 {
-		numeral += "C"
-	}
-	for ; (i / 90) > 0; i -= 90 {
-		numeral += "XC"
-	}
-	for ; (i / 50) > 0; i -= 50 {
-		numeral += "L"
-	}
-	for ; (i / 40) > 0; i -= 40 {
-		numeral += "XL"
-	}
-	for ; (i / 10) > 0; i -= 10 {
-		numeral += "X"
-	}
-	for ; (i / 9) > 0; i -= 9 {
-		numeral += "IX"
-	}
-	for ; (i / 5) > 0; i -= 5 {
-		numeral += "V"
-	}
-	for ; (i / 4) > 0; i -= 4 {
-		numeral += "IV"
-	}
-	for ; (i / 1) > 0; i -= 1 {
-		numeral += "I"
+	for _, n := range romanNumeralTable {
+		for ; (i / n.arabic) > 0; i -= n.arabic {
+			numeral += n.roman
+		}
 	}
 
 	return numeral, nil
