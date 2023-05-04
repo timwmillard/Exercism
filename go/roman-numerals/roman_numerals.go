@@ -35,7 +35,7 @@ var romanNumeralTable = []numeral{
  * M is 1000
  */
 func ToRomanNumeral(number int) (string, error) {
-	if number < 1 || number > 3000 {
+	if number < 1 || number > 3999 {
 		return "", errors.New("out of range")
 	}
 	var numeral string
