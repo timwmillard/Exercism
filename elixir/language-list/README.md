@@ -133,7 +133,9 @@ LanguageList.count(language_list)
 
 ## 6. Define a function to determine if the list includes a functional language
 
-Define the `functional_list?/1` function which takes 1 argument (a _language list_). It should return a boolean value. It should return true if _"Elixir"_ is one of the languages in the list.
+Define the `functional_list?/1` function which takes 1 argument (a _language
+list_). It should return a boolean value. It should return true if _"Elixir"_ is
+one of the languages in the list.
 
 ```elixir
 language_list = LanguageList.new()
