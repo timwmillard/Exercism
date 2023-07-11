@@ -26,8 +26,7 @@
 
 ## 6. Define a function to determine if the list includes a functional language
 
-- Your function should return a boolean value indicating whether `"Elixir"` is a
-  member of the list. Elixir [provides a function][in] to test list membership.
+- Your function should return a boolean value indicating whether `"Elixir"` is a member of the list. Elixir [provides a function][in] to test list membership.
 
 [list]: https://elixir-lang.org/getting-started/basic-types.html#linked-lists
 [hd]: https://hexdocs.pm/elixir/Kernel.html#hd/1
