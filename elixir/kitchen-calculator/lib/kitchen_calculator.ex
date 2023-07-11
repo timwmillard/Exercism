@@ -44,7 +44,6 @@ defmodule KitchenCalculator do
   end
 
   def convert(volume_pair, unit) do
-    mm = to_milliliter(volume_pair)
-    from_milliliter(mm, unit)
+    to_milliliter(volume_pair) |> from_milliliter(unit)
   end
 end
