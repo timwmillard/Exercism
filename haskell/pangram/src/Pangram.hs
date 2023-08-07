@@ -1,13 +1,12 @@
 module Pangram (isPangram) where
 
-import Data.Char 
+import Data.Char (toLower)
 
--- isPangram :: String -> Bool
--- isPangram text = map toLower text == ""
-
--- map (\x -> elem x (lowerPangram "The Quick brown fox jumps over the Lazy Dog")) allLetters
 isPangram :: String -> Bool 
 isPangram text = 
-     foldr (&&) True $ map (\x -> elem x (map toLower text)) allLetters
+     foldr (&&) True 
+     $ map (\x -> elem x lowerText) letters
+     where 
+        letters = ['a'..'z']
+        lowerText = map toLower text
 
-allLetters = ['a'..'z']
