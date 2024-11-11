@@ -3,8 +3,6 @@
 int steps_count(int n, int s);
 
 int steps_count(int n, int s) {
-    if (n <= 0) return ERROR_VALUE;
-
     if (n == 1) return s;
 
     if (n%2 == 0) // even
@@ -13,7 +11,10 @@ int steps_count(int n, int s) {
     return steps_count(3*n + 1, ++s);
 }
 
+
 int steps(int start) {
+    if (start <= 0) return ERROR_VALUE;
+
     return steps_count(start, 0);
 }
 
