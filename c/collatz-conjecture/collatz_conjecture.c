@@ -1,5 +1,7 @@
 #include "collatz_conjecture.h"
 
+int steps_count(int n, int s);
+
 int steps_count(int n, int s) {
     if (n <= 0) return ERROR_VALUE;
 
