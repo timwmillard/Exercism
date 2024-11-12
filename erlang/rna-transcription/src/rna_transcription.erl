@@ -8,15 +8,14 @@
 % `T` -> `A`
 % `A` -> `U`
 
-to_rna(Strand) -> to_rna(Strand, "").
-
-to_rna("", List) -> List;
-to_rna([Strand | Rest], List) ->
-    NewList = case Strand of
-        $G -> List ++ "C";
-        $C -> List ++ "G";
-        $T -> List ++ "A";
-        $A -> List ++ "U"
-    end,
-    to_rna(Rest, NewList).
+to_rna(Strand) -> 
+    lists:map(
+      fun(S) ->
+          case S of
+              $G -> $C;
+              $C -> $G;
+              $T -> $A;
+              $A -> $U
+          end
+      end, Strand).
 
