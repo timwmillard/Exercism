@@ -10,7 +10,7 @@ accumulate(Fn, List) ->
     [Fn(X) || X <- List].
 
 
-% use recuration to accumulate the list
+% use recursion to accumulate the list
 -spec accumulate2(fun((A) -> B), list(A)) -> list(B).
 accumulate2(Fn, List) -> 
     accumulate2(Fn, List, []).
