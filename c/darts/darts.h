@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 typedef struct {
-    double x, y;
+    float x, y;
 } coordinate_t;
 
 uint8_t score(coordinate_t pos);
